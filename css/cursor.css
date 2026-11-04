@@ -1,0 +1,50 @@
+/* Native browser cursors remain the fallback if an SVG cursor is unsupported. */
+@media (hover: hover) and (pointer: fine) {
+    html, html body {
+        cursor: url('../assets/cursors/cursor-default.svg') 3 3, auto;
+    }
+
+    a, button:not(:disabled), select, summary, label.toggle, [role="button"], [data-cursor="interactive"] {
+        cursor: url('../assets/cursors/cursor-pointer.svg') 13 3, pointer;
+    }
+
+    a:hover, button:not(:disabled):hover, select:hover, summary:hover,
+    label.toggle:hover, [role="button"]:hover, [data-cursor="interactive"]:hover {
+        cursor: url('../assets/cursors/cursor-hover.svg') 3 3, pointer;
+    }
+
+    html[data-cursor-click="true"] body,
+    html[data-cursor-click="true"] a,
+    html[data-cursor-click="true"] button:not(:disabled),
+    html[data-cursor-click="true"] [role="button"] {
+        cursor: url('../assets/cursors/cursor-click.svg') 3 1, pointer !important;
+    }
+
+    html[data-cursor-loading="true"] body,
+    html[data-cursor-loading="true"] button:not(:disabled),
+    html[data-cursor-loading="true"] a {
+        cursor: url('../assets/cursors/cursor-loading.svg') 16 16, progress;
+    }
+
+    input, textarea, [contenteditable="true"], [contenteditable=""] {
+        cursor: text !important;
+    }
+
+    html button:disabled, html [aria-disabled="true"] {
+        cursor: url('../assets/cursors/cursor-not-allowed.svg') 16 16, not-allowed !important;
+    }
+}
+
+#neon-cursor-trail {
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    contain: strict;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+    #neon-cursor-trail { display: none !important; }
+}
