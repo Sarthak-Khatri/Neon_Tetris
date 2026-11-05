@@ -8,4 +8,4 @@ COPY . .
 RUN a2enmod rewrite
 
 EXPOSE 80
-D
+
